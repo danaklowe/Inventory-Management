@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifyPartScreenController">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Label text="Modify Part">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <RadioButton fx:id="inHouseRBtn" mnemonicParsing="false" onAction="#inHouseRBtnClicked" text="In-House">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="rBtnGroup" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="outsourcedRBtn" mnemonicParsing="false" onAction="#outsourcedRBtnClicked" selected="true" text="Outsourced" toggleGroup="$rBtnGroup" />
+               </children>
+            </HBox>
+            <HBox prefHeight="380.0" prefWidth="580.0">
+               <children>
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="384.0" prefWidth="395.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="121.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="432.0" minWidth="10.0" prefWidth="189.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="ID" />
+                        <Label layoutX="10.0" layoutY="110.0" text="Name" GridPane.rowIndex="1" />
+                        <Label layoutX="10.0" layoutY="25.0" text="Inv" GridPane.rowIndex="2" />
+                        <Label layoutX="10.0" layoutY="110.0" text="Price/Cost" GridPane.rowIndex="3" />
+                        <Label layoutX="10.0" layoutY="153.0" text="Max" GridPane.rowIndex="4" />
+                        <Label fx:id="coNameMachineIDLbl" layoutX="10.0" layoutY="196.0" text="Company Name" GridPane.rowIndex="5" />
+                        <TextField fx:id="idTxt" disable="true" prefHeight="40.0" prefWidth="215.0" promptText="Auto Gen - Disabled" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="nameTxt" layoutX="300.0" layoutY="20.0" prefHeight="40.0" promptText="Part Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="invTxt" layoutX="300.0" layoutY="71.0" prefHeight="40.0" promptText="Inv" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="priceTxt" layoutX="300.0" layoutY="122.0" prefHeight="40.0" promptText="Price/Cost" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="coNameMachineIDTxt" layoutX="300.0" layoutY="173.0" prefHeight="40.0" promptText="Comp Nm" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </TextField>
+                        <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="70.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <children>
+                              <TextField fx:id="maxTxt" prefHeight="40.0" prefWidth="125.0" promptText="Max">
+                                 <font>
+                                    <Font name="System Italic" size="15.0" />
+                                 </font>
+                              </TextField>
+                              <Label text="Min" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </GridPane>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TextField fx:id="minTxt" prefHeight="40.0" promptText="Min">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets top="265.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#saveBtnClicked" text="Save" />
+                  <Button mnemonicParsing="false" onAction="#cancelBtnClicked" text="Cancel" />
+               </children>
+               <VBox.margin>
+                  <Insets right="40.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
